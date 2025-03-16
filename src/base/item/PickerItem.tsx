@@ -1,28 +1,25 @@
 import React, {memo} from 'react';
-import {StyleProp, StyleSheet, Text, TextStyle} from 'react-native';
-import {usePickerItemHeight} from '../contexts/PickerItemHeightContext';
+import {StyleProp, TextStyle} from 'react-native';
+// import {usePickerItemHeight} from '../contexts/PickerItemHeightContext';
+import { ThemedText } from '../picker/ThemedText';
 
 type PickerItemProps = {
   value: any;
   label?: string;
   itemTextStyle: StyleProp<TextStyle>;
+  
 };
 
-const PickerItem = ({value, label, itemTextStyle}: PickerItemProps) => {
-  const height = usePickerItemHeight();
+const PickerItem = ({value, label, itemTextStyle, }: PickerItemProps) => {
+  // const height = usePickerItemHeight();
 
   return (
-    <Text style={[styles.root, {lineHeight: height}, itemTextStyle]}>
+    <ThemedText type='bummer' style={[itemTextStyle]}>
       {label ?? value}
-    </Text>
+    </ThemedText>
   );
 };
 
-const styles = StyleSheet.create({
-  root: {
-    textAlign: 'center',
-    fontSize: 20,
-  },
-});
+
 
 export default memo(PickerItem);

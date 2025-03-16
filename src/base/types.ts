@@ -21,6 +21,7 @@ export type RenderItemProps<ItemT extends PickerItem<any>> = {
   item: ItemT;
   index: number;
   itemTextStyle: StyleProp<TextStyle> | undefined;
+  textType?: string; 
 };
 export type RenderItem<ItemT extends PickerItem<any>> = (
   props: RenderItemProps<ItemT>,
@@ -30,6 +31,7 @@ export type RenderItemContainerProps<ItemT extends PickerItem<any>> = {
   item: ItemT;
   index: number;
   faces: ReadonlyArray<Faces>;
+  textType?: string;
   renderItem: RenderItem<ItemT>;
   itemTextStyle: StyleProp<TextStyle> | undefined;
 };
@@ -40,6 +42,7 @@ export type RenderPickerItem<ItemT extends PickerItem<any>> = (info: {
   key?: string;
   item: ItemT;
   index: number;
+  textType?: string;
 }) => React.ReactElement;
 export type RenderListProps<ItemT extends PickerItem<any>> = {
   ref: React.RefObject<ListMethods>;

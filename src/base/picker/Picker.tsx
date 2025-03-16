@@ -6,6 +6,8 @@ import {ScrollContentOffsetContext} from '../contexts/ScrollContentOffsetContext
 import {PickerItemHeightContext} from '../contexts/PickerItemHeightContext';
 import useValueEventsEffect from './hooks/useValueEventsEffect';
 import useSyncScrollEffect from './hooks/useSyncScrollEffect';
+
+
 import type {
   KeyExtractor,
   ListMethods,
@@ -27,6 +29,7 @@ import List from '../list/List';
 
 export type PickerProps<ItemT extends PickerItem<any>> = {
   data: ReadonlyArray<ItemT>;
+  textType?: string; 
   value?: ItemT['value'];
   itemHeight?: number;
   visibleItemCount?: number;
@@ -55,11 +58,13 @@ const defaultKeyExtractor: KeyExtractor<any> = (_, index) => index.toString();
 const defaultRenderItem: RenderItem<PickerItem<any>> = ({
   item: {value, label},
   itemTextStyle,
+   // Accept textType
 }) => (
   <PickerItemComponent
     value={value}
     label={label}
     itemTextStyle={itemTextStyle}
+   
   />
 );
 const defaultRenderItemContainer: RenderItemContainer<any> = ({
@@ -81,6 +86,7 @@ const useValueIndex = (data: ReadonlyArray<PickerItem<any>>, value: any) => {
 const Picker = <ItemT extends PickerItem<any>>({
   data,
   value,
+  textType,
   width = 'auto',
   itemHeight = 48,
   visibleItemCount = 5,
@@ -115,8 +121,8 @@ const Picker = <ItemT extends PickerItem<any>>({
   }, [itemHeight, visibleItemCount]);
   const renderPickerItem = useCallback<RenderPickerItem<ItemT>>(
     ({item, index, key}) =>
-      renderItemContainer({key, item, index, faces, renderItem, itemTextStyle}),
-    [faces, itemTextStyle, renderItem, renderItemContainer],
+      renderItemContainer({key, item, index, faces, renderItem, itemTextStyle, textType}),
+    [faces, itemTextStyle, renderItem, renderItemContainer, textType],
   );
 
   const {activeIndexRef, onScrollEnd} = useValueEventsEffect(

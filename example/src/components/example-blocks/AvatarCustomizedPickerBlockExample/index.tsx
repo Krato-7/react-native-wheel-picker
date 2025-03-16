@@ -25,7 +25,9 @@ const createPickerItem = (index: number): CusPickerItem => {
       firstName: faker.person.firstName(sex),
       lastName: faker.person.lastName(sex),
       job: faker.person.jobTitle(),
-      avatarUrl: `https://randomuser.me/api/portraits/${sex === 'male' ? 'men' : 'women'}/${index % 50}.jpg`, // eslint-disable-line prettier/prettier
+      avatarUrl: `https://randomuser.me/api/portraits/${
+        sex === 'male' ? 'men' : 'women'
+      }/${index % 50}.jpg`, // eslint-disable-line prettier/prettier
     },
   };
 };

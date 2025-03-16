@@ -21,7 +21,7 @@ export type RenderItemProps<ItemT extends PickerItem<any>> = {
   item: ItemT;
   index: number;
   itemTextStyle: StyleProp<TextStyle> | undefined;
-  textType?: string; 
+  textType?: string;
 };
 export type RenderItem<ItemT extends PickerItem<any>> = (
   props: RenderItemProps<ItemT>,

@@ -1,22 +1,22 @@
-import React, { createContext, useContext, useState, useEffect } from "react";
-import { Appearance } from "react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { lightTheme, darkTheme } from "./Theme";
+import React, {createContext, useContext, useState, useEffect} from 'react';
+import {Appearance} from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {lightTheme, darkTheme} from './Theme';
 
 const ThemeContext = createContext<any>(null);
 
-export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
-  const [theme, setTheme] = useState<"light" | "dark" | "auto">("auto"); // Tracks user selection
-  const [systemTheme, setSystemTheme] = useState<"light" | "dark">(
-    Appearance.getColorScheme() || "light"
+export const ThemeProvider = ({children}: {children: React.ReactNode}) => {
+  const [theme, setTheme] = useState<'light' | 'dark' | 'auto'>('auto'); // Tracks user selection
+  const [systemTheme, setSystemTheme] = useState<'light' | 'dark'>(
+    Appearance.getColorScheme() || 'light',
   ); // Default to "light" in case it's null
 
   useEffect(() => {
     // Load theme from AsyncStorage when app starts
     const loadTheme = async () => {
-      const savedTheme = await AsyncStorage.getItem("theme");
+      const savedTheme = await AsyncStorage.getItem('theme');
       if (savedTheme) {
-        setTheme(savedTheme as "light" | "dark" | "auto");
+        setTheme(savedTheme as 'light' | 'dark' | 'auto');
       }
     };
     loadTheme();
@@ -24,8 +24,8 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     // Listen for system theme changes
-    const subscription = Appearance.addChangeListener(({ colorScheme }) => {
-      setSystemTheme(colorScheme || "light");
+    const subscription = Appearance.addChangeListener(({colorScheme}) => {
+      setSystemTheme(colorScheme || 'light');
     });
 
     return () => subscription.remove();
@@ -33,16 +33,23 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 
   // Save theme to AsyncStorage whenever it changes
   useEffect(() => {
-    AsyncStorage.setItem("theme", theme);
+    AsyncStorage.setItem('theme', theme);
   }, [theme]);
 
   // Resolve applied theme
-  const appliedTheme = theme === "auto" ? systemTheme : theme;
-  const colors = appliedTheme === "dark" ? darkTheme : lightTheme; // Ensure correct colors are applied
+  const appliedTheme = theme === 'auto' ? systemTheme : theme;
+  const colors = appliedTheme === 'dark' ? darkTheme : lightTheme; // Ensure correct colors are applied
 
-  console.log("Theme:", theme, "| System Theme:", systemTheme, "| Applied Theme:", appliedTheme); // Debugging log
+  console.log(
+    'Theme:',
+    theme,
+    '| System Theme:',
+    systemTheme,
+    '| Applied Theme:',
+    appliedTheme,
+  ); // Debugging log
 
-  const toggleTheme = (selectedTheme: "light" | "dark" | "auto") => {
+  const toggleTheme = (selectedTheme: 'light' | 'dark' | 'auto') => {
     setTheme(selectedTheme);
   };
 

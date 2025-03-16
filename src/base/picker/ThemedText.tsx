@@ -1,41 +1,39 @@
-import React from "react";
-import { Text, type TextProps, StyleSheet } from "react-native";
+import React from 'react';
+import {Text, type TextProps, StyleSheet} from 'react-native';
 // import { TextType, allowedTextTypes } from "constants/constant";
-import { Fonts } from "constants/Font";
-import { useTheme } from "constants/ThemeContext";
-
-
+import {Fonts} from 'constants/Font';
+import {useTheme} from 'constants/ThemeContext';
 
 export type ThemedTextProps = TextProps & {
   lightColor?: string;
   darkColor?: string;
   type?:
-    | "default"
-    | "titleLarge"
-    | "titleRegular"
-    | "titleMedium"
-    | "titleSmall"
-    | "titleXS"
-    | "defaultSemiBold"
-    | "subtitle"
-    | "buttonRegular"
-    | "buttonSmall"
-    | "buttonXS"
-    | "paragraphRegular"
-    | "paragraphMedium"
-    | "paragraphSmall"
-    | "paragraphXS"
-    | "link"
-    | "defaultSemiBold"
-    | "subtitle"
-    | "bummer";
+    | 'default'
+    | 'titleLarge'
+    | 'titleRegular'
+    | 'titleMedium'
+    | 'titleSmall'
+    | 'titleXS'
+    | 'defaultSemiBold'
+    | 'subtitle'
+    | 'buttonRegular'
+    | 'buttonSmall'
+    | 'buttonXS'
+    | 'paragraphRegular'
+    | 'paragraphMedium'
+    | 'paragraphSmall'
+    | 'paragraphXS'
+    | 'link'
+    | 'defaultSemiBold'
+    | 'subtitle'
+    | 'bummer';
 };
 
 export function ThemedText({
   style,
   lightColor,
   darkColor,
-  type = "default",
+  type = 'default',
   ...rest
 }: ThemedTextProps) {
   // const color = useThemeColor(
@@ -43,31 +41,31 @@ export function ThemedText({
   //   "text"
   // );
 
-  const { colors } = useTheme(); // Get theme and colors
+  const {colors} = useTheme(); // Get theme and colors
   const textColor = colors.text; // Extract text color
 
-
   return (
-    <Text {...(rest as TextProps)}
+    <Text
+      {...(rest as TextProps)}
       style={[
-        { color:textColor },
-        type === "default" ? styles.default : undefined,
-        type === "titleLarge" ? styles.titleLarge : undefined,
-        type === "titleRegular" ? styles.titleRegular : undefined,
-        type === "titleMedium" ? styles.titleMedium : undefined,
-        type === "titleSmall" ? styles.titleSmall : undefined,
-        type === "titleXS" ? styles.titleXS : undefined,
-        type === "buttonRegular" ? styles.buttonRegular : undefined,
-        type === "buttonSmall" ? styles.buttonSmall : undefined,
-        type === "buttonXS" ? styles.buttonXS : undefined,
-        type === "paragraphRegular" ? styles.paragraphRegular : undefined,
-        type === "paragraphMedium" ? styles.paragraphMedium : undefined,
-        type === "paragraphSmall" ? styles.paragraphSmall : undefined,
-        type === "paragraphXS" ? styles.paragraphXS : undefined,
-        type === "defaultSemiBold" ? styles.defaultSemiBold : undefined,
-        type === "subtitle" ? styles.subtitle : undefined,
-        type === "link" ? styles.link : undefined,
-        type === "bummer" ? styles.bummer : undefined,
+        {color: textColor},
+        type === 'default' ? styles.default : undefined,
+        type === 'titleLarge' ? styles.titleLarge : undefined,
+        type === 'titleRegular' ? styles.titleRegular : undefined,
+        type === 'titleMedium' ? styles.titleMedium : undefined,
+        type === 'titleSmall' ? styles.titleSmall : undefined,
+        type === 'titleXS' ? styles.titleXS : undefined,
+        type === 'buttonRegular' ? styles.buttonRegular : undefined,
+        type === 'buttonSmall' ? styles.buttonSmall : undefined,
+        type === 'buttonXS' ? styles.buttonXS : undefined,
+        type === 'paragraphRegular' ? styles.paragraphRegular : undefined,
+        type === 'paragraphMedium' ? styles.paragraphMedium : undefined,
+        type === 'paragraphSmall' ? styles.paragraphSmall : undefined,
+        type === 'paragraphXS' ? styles.paragraphXS : undefined,
+        type === 'defaultSemiBold' ? styles.defaultSemiBold : undefined,
+        type === 'subtitle' ? styles.subtitle : undefined,
+        type === 'link' ? styles.link : undefined,
+        type === 'bummer' ? styles.bummer : undefined,
 
         style,
       ]}
@@ -75,7 +73,6 @@ export function ThemedText({
     />
   );
 }
-
 
 const styles = StyleSheet.create({
   default: {
@@ -86,7 +83,7 @@ const styles = StyleSheet.create({
   defaultSemiBold: {
     fontSize: 16,
     lineHeight: 24,
-    fontWeight: "600",
+    fontWeight: '600',
   },
   titleLarge: {
     fontSize: 34,
@@ -174,12 +171,12 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     fontSize: 20,
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
   link: {
     lineHeight: 30,
     fontSize: 16,
-    color: "#0a7ea4",
+    color: '#0a7ea4',
   },
   bummer: {
     fontSize: 64,
@@ -187,6 +184,5 @@ const styles = StyleSheet.create({
     lineHeight: 67,
     letterSpacing: -1,
     fontFamily: Fonts.fontFamily.primary,
-    
-  }
+  },
 });

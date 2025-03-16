@@ -3,6 +3,7 @@
 [EXPO_SNACK]: https://snack.expo.dev/@sergeyrozhkov/quidone-react-native-wheel-picker
 
 # React Native Wheel Picker
+
 <p>
   <a href="https://github.com/quidone/react-native-wheel-picker/blob/HEAD/LICENSE">
     <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="React Native Wheel Picker is released under the MIT license." />
@@ -40,18 +41,19 @@ A flexible React Native Wheel Picker for iOS and Android without using the nativ
   </tr>
 </table>
 
-
 ## Features
- - Without native side.
- - Unified API.
- - Only native animations.
- - [Support native feedback](#Native-Feedback).
- - [Support virtualization](#withVirtualized).
- - Compatible with Expo ([Snack][EXPO_SNACK]).
- - Deep customization
- - Written ```TypeScript```.
+
+- Without native side.
+- Unified API.
+- Only native animations.
+- [Support native feedback](#Native-Feedback).
+- [Support virtualization](#withVirtualized).
+- Compatible with Expo ([Snack][EXPO_SNACK]).
+- Deep customization
+- Written `TypeScript`.
 
 ## Installation
+
 ```shell
 yarn add @quidone/react-native-wheel-picker
 ```
@@ -89,7 +91,7 @@ import WheelPicker from '@quidone/react-native-wheel-picker';
 const data = [...Array(100).keys()].map((index) => ({
   value: index,
   label: index.toString(),
-}))
+}));
 
 const App = () => {
   const [value, setValue] = useState(0);
@@ -130,34 +132,37 @@ const App = () => {
 ### WheelPicker
 
 #### Props
-- ```data``` [array] - items of picker
-- ```value?``` [any] - current value of picker item
-- ```itemHeight?``` [number] - height of picker item in the center.
-- ```visibleItemCount?``` [number] - number of displayed items: 1, 3, 5... (default = 5). For 5, the WheelPicker height is calculated incorrectly, left for backward compatibility.
-- ```width?``` [number | string] - width of picker.
-- ```readOnly?``` [boolean] - read only mode.
-- ```testID?``` [string] - Used to locate this component in end-to-end tests.
-- ```onValueChanging?``` [function] - An event that is triggered when the value is changing.
-- ```onValueChanged?``` [function] - An event that is triggered when the value is changed (wheel is stopped and no touch).
-- ```keyExtractor?``` [function] - key extractor from picker item.
-- ```renderItem?``` [function] - render picker item content.
-- ```renderItemContainer?``` [function] - render picker item container (there is animated container).
-- ```renderOverlay?``` [function | null] - render overlay over the picker.
-- ```renderList?``` [function] - render list (Advanced, It is not recommended to use).
-- ```style?``` [object | array] - root style.
-- ```itemTextStyle?``` [object | array] - item text style for picker item.
-- ```overlayItemStyle?``` [object | array] - style for the overlay element in the center
-- ```contentContainerStyle?``` [object | array] - style which wraps all of the child views [original](https://reactnative.dev/docs/scrollview#contentcontainerstyle)
-- ```scrollEventThrottle?``` [object | array] - [original](https://reactnative.dev/docs/scrollview#scrolleventthrottle-ios)
 
+- `data` [array] - items of picker
+- `value?` [any] - current value of picker item
+- `itemHeight?` [number] - height of picker item in the center.
+- `visibleItemCount?` [number] - number of displayed items: 1, 3, 5... (default = 5). For 5, the WheelPicker height is calculated incorrectly, left for backward compatibility.
+- `width?` [number | string] - width of picker.
+- `readOnly?` [boolean] - read only mode.
+- `testID?` [string] - Used to locate this component in end-to-end tests.
+- `onValueChanging?` [function] - An event that is triggered when the value is changing.
+- `onValueChanged?` [function] - An event that is triggered when the value is changed (wheel is stopped and no touch).
+- `keyExtractor?` [function] - key extractor from picker item.
+- `renderItem?` [function] - render picker item content.
+- `renderItemContainer?` [function] - render picker item container (there is animated container).
+- `renderOverlay?` [function | null] - render overlay over the picker.
+- `renderList?` [function] - render list (Advanced, It is not recommended to use).
+- `style?` [object | array] - root style.
+- `itemTextStyle?` [object | array] - item text style for picker item.
+- `overlayItemStyle?` [object | array] - style for the overlay element in the center
+- `contentContainerStyle?` [object | array] - style which wraps all of the child views [original](https://reactnative.dev/docs/scrollview#contentcontainerstyle)
+- `scrollEventThrottle?` [object | array] - [original](https://reactnative.dev/docs/scrollview#scrolleventthrottle-ios)
 
 ### usePickerItemHeight
+
 This hook returns the item height which was passed via props.
 
 ### useScrollContentOffset
+
 This hook returns the animated value of the ScrollView offset.
 
 ### withVirtualized
+
 This HOC returns virtualized picker
 
 ```jsx
@@ -167,24 +172,30 @@ const VirtualizedWheelPicker = withVirtualized(WheelPicker);
 ```
 
 #### Additional props
-- ```initialNumToRender?``` (default = ```Math.ceil(visibleItemCount / 2)```) - [original](https://reactnative.dev/docs/flatlist#initialnumtorender).
-- ```maxToRenderPerBatch?``` (default = ```Math.ceil(visibleItemCount / 2)```) - [original](https://reactnative.dev/docs/flatlist#maxtorenderperbatch).
-- ```windowSize?``` - [original](https://reactnative.dev/docs/flatlist#windowsize).
-- ```updateCellsBatchingPeriod?``` (default = 10) - [original](https://reactnative.dev/docs/flatlist#updatecellsbatchingperiod).
+
+- `initialNumToRender?` (default = `Math.ceil(visibleItemCount / 2)`) - [original](https://reactnative.dev/docs/flatlist#initialnumtorender).
+- `maxToRenderPerBatch?` (default = `Math.ceil(visibleItemCount / 2)`) - [original](https://reactnative.dev/docs/flatlist#maxtorenderperbatch).
+- `windowSize?` - [original](https://reactnative.dev/docs/flatlist#windowsize).
+- `updateCellsBatchingPeriod?` (default = 10) - [original](https://reactnative.dev/docs/flatlist#updatecellsbatchingperiod).
 
 ## 👨‍💻 Author
+
 [Sergey Rozhkov][AUTHOR]
 
 ## 🎯 Was it helpful?
+
 Do you like it and find it helpful? You can help this project in the following way:
+
 - ⭐ Put the star.
 - 💡 Suggest your ideas.
 - 😉 Open a founded issue.
 
 ## 🤝 Contributing
+
 See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
 
 ## 📄 License
+
 Quidone React Native Wheel Picker is MIT licensed, as found in the [LICENSE](LICENSE) file.
 
 ---

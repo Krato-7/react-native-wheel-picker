@@ -12,10 +12,14 @@ const useCallFeedback = () => {
   const {enabledSound, enabledImpact} = usePickerConfig();
   return useMemo(() => {
     switch (true) {
-      case enabledSound && enabledImpact: return WheelPickerFeedback.triggerSoundAndImpact;  // eslint-disable-line prettier/prettier
-      case enabledSound: return WheelPickerFeedback.triggerSound; // eslint-disable-line prettier/prettier
-      case enabledImpact: return WheelPickerFeedback.triggerImpact; // eslint-disable-line prettier/prettier
-      default: return () => {}; // eslint-disable-line prettier/prettier
+      case enabledSound && enabledImpact:
+        return WheelPickerFeedback.triggerSoundAndImpact; // eslint-disable-line prettier/prettier
+      case enabledSound:
+        return WheelPickerFeedback.triggerSound; // eslint-disable-line prettier/prettier
+      case enabledImpact:
+        return WheelPickerFeedback.triggerImpact; // eslint-disable-line prettier/prettier
+      default:
+        return () => {}; // eslint-disable-line prettier/prettier
     }
   }, [enabledImpact, enabledSound]);
 };

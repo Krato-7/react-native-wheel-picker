@@ -1,49 +1,49 @@
-import { StyleSheet } from "react-native";
-import { lightTheme, darkTheme } from "./Theme";
-import { Colors } from "./Colors";
-import { LinearGradient } from "expo-linear-gradient";
+import {StyleSheet} from 'react-native';
+import {lightTheme, darkTheme} from './Theme';
+import {Colors} from './Colors';
+import {LinearGradient} from 'expo-linear-gradient';
 
 export const getStyles = (theme: string) => {
-  const colors = theme === "light" ? lightTheme : darkTheme;
+  const colors = theme === 'light' ? lightTheme : darkTheme;
 
   return StyleSheet.create({
     container: {
       flex: 1,
-      alignItems: "center",
-      height: "100%",
-      overflow: "hidden",
-      position: "relative",
-      width: "100%",
+      alignItems: 'center',
+      height: '100%',
+      overflow: 'hidden',
+      position: 'relative',
+      width: '100%',
       paddingHorizontal: 24,
-      display: "flex",
-      flexDirection: "column",
+      display: 'flex',
+      flexDirection: 'column',
     },
     background: {
       flex: 1,
     },
     header: {
       marginTop: 60,
-      display: "flex",
-      justifyContent: "space-between",
-      width: "100%",
-      alignItems: "center",
-      flexDirection: "row",
-      backgroundColor: "inherit",
+      display: 'flex',
+      justifyContent: 'space-between',
+      width: '100%',
+      alignItems: 'center',
+      flexDirection: 'row',
+      backgroundColor: 'inherit',
     },
     menu: {
       width: 40,
       height: 40,
       borderRadius: 20,
       borderWidth: 1,
-      justifyContent: "center",
-      alignItems: "center",
+      justifyContent: 'center',
+      alignItems: 'center',
       backgroundColor: colors.secondary,
       borderColor: colors.border,
     },
     upgradeContainer: {
       height: 40,
-      flexDirection: "row",
-      alignItems: "center",
+      flexDirection: 'row',
+      alignItems: 'center',
       paddingVertical: 10,
       paddingHorizontal: 20,
       gap: 10,
@@ -51,7 +51,7 @@ export const getStyles = (theme: string) => {
       backgroundColor: Colors.colors.DeepOrange,
     },
     upgradeText: {
-      color: "white",
+      color: 'white',
       fontSize: 16,
     },
     title: {
@@ -60,10 +60,10 @@ export const getStyles = (theme: string) => {
     icons: {
       width: 32,
       height: 32,
-      backgroundColor: "#FF5733",
+      backgroundColor: '#FF5733',
       borderRadius: 20,
-      alignItems: "center",
-      justifyContent: "center",
+      alignItems: 'center',
+      justifyContent: 'center',
       padding: 6,
     },
     settingsIcon: {
@@ -77,23 +77,23 @@ export const getStyles = (theme: string) => {
       borderRadius: 12,
       marginTop: 16,
       paddingHorizontal: 16,
-      width: "100%",
-      textAlign: "left",
-      display: "flex",
-      justifyContent: "center",
-      alignSelf: "stretch",
-      backdropFilter: "blur(12)",
+      width: '100%',
+      textAlign: 'left',
+      display: 'flex',
+      justifyContent: 'center',
+      alignSelf: 'stretch',
+      backdropFilter: 'blur(12)',
       borderWidth: 1,
       backgroundColor: colors.secondary,
       borderColor: colors.border,
     },
 
     settingItem: {
-      flexDirection: "row",
+      flexDirection: 'row',
       gap: 16,
-      alignItems: "center",
+      alignItems: 'center',
       paddingHorizontal: 0,
-      alignSelf: "stretch",
+      alignSelf: 'stretch',
       height: 64,
     },
     // settingCard: {
@@ -102,17 +102,17 @@ export const getStyles = (theme: string) => {
     //   alignSelf: 'stretch'
     // },
     settingCardTexts: {
-      flexDirection: "column",
+      flexDirection: 'column',
     },
     itemText: {},
     textCountContainer: {
-      display: "flex",
-      flexDirection: "row",
-      justifyContent: "space-between",
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
       flex: 1,
-      height: "100%",
+      height: '100%',
       paddingVertical: 16,
-      alignItems: "center",
+      alignItems: 'center',
     },
     borderBottom: {
       borderBottomWidth: 1,
@@ -133,8 +133,8 @@ export const getStyles = (theme: string) => {
       height: 100,
       width: 100,
       borderRadius: 50,
-      alignItems: "center",
-      justifyContent: "center",
+      alignItems: 'center',
+      justifyContent: 'center',
       padding: 10,
       backgroundColor: colors.text,
     },
